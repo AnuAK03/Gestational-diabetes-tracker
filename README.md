@@ -60,24 +60,6 @@ python app.py
 
 The app will be available at http://localhost:5000.
 
-📊 Usage
-Register or log in to your account.
-
-Enter your health data (pregnancies, glucose, blood pressure, BMI, etc.).
-
-Submit the form to get your GDM risk prediction, probability scores, and personalized insights.
-
-Review your prediction history and monitor trends over time.
-
-
-🧠 How It Works
-Data Input: Users enter clinical and demographic information via a secure web form.
-
-Prediction Engine: The backend processes and scales the data, then uses a trained XGBoost model to predict GDM risk.
-
-Interpretability: SHAP explanations show which features most influenced the prediction.
-
-Tracking: All predictions and inputs are stored securely for future reference and trend analysis.
 
 
 📄 License

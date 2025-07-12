@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #fff0f5 !important;
+    }
+    .dashboard-card {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        padding: 40px 30px;
+        margin-top: 40px;
+    }
+    .btn-pink {
+        background-color: #ffb6c1;
+        color: #fff;
+        border: none;
+        font-weight: 600;
+        transition: background 0.3s;
+    }
+    .btn-pink:hover {
+        background-color: #ff69b4;
+        color: #fff;
+    }
+</style>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="dashboard-card">
+                <div class="card-body text-center">
+                    <h2 class="card-title mb-4">Welcome to Gestational Diabetes Mellitus</h2>
+                    <p class="lead mb-4">Choose what you'd like to do:</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">Tracking</h5>
+                                    <p class="card-text">Track your gestational diabetes-related health parameters and monitor your progress over time.</p>
+                                    <a href="{{ url_for('prediction_page') }}" class="btn btn-pink">Start Tracking</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">Chatbot</h5>
+                                    <p class="card-text">Chat with our assistant about diabetes-related questions and get helpful information.</p>
+                                    <a href="{{ url_for('chatbot') }}" class="btn btn-pink">Chat Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <a href="{{ url_for('history') }}" class="btn btn-pink btn-lg">View History</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

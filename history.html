@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}My Tracking History{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #fff0f5 !important;
+    }
+    .history-card {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        padding: 40px 30px;
+        margin-top: 40px;
+    }
+    .table thead {
+        background-color: #ffb6c1;
+        color: #fff;
+    }
+    .table tbody tr {
+        vertical-align: middle;
+    }
+</style>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="history-card">
+                <h2 class="mb-4 text-center">My Tracking History</h2>
+                {% if history %}
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover align-middle">
+                        <thead>
+                            <tr>
+                                <th>Date & Time (UTC)</th>
+                                <th>Pregnancies</th>
+                                <th>Glucose</th>
+                                <th>Blood Pressure</th>
+                                <th>Skin Thickness</th>
+                                <th>Insulin</th>
+                                <th>BMI</th>
+                                <th>Age</th>
+                                <th>Prediction</th>
+                                <th>Diabetic Probability</th>
+                                <th>Non-Diabetic Probability</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for record in history %}
+                            <tr>
+                                <td>{{ record.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                                <td>{{ record.pregnancies }}</td>
+                                <td>{{ record.glucose }}</td>
+                                <td>{{ record.blood_pressure }}</td>
+                                <td>{{ record.skin_thickness }}</td>
+                                <td>{{ record.insulin }}</td>
+                                <td>{{ record.bmi }}</td>
+                                <td>{{ record.age }}</td>
+                                <td>{{ record.prediction }}</td>
+                                <td>{{ '%.2f'|format(record.probability_diabetic * 100) }}%</td>
+                                <td>{{ '%.2f'|format(record.probability_non_diabetic * 100) }}%</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <p class="text-center">No tracking history found.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
